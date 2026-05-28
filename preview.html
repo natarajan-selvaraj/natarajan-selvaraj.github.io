@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Natarajan Selvaraj — Principal Engineer, AI Architect, and enterprise agentic AI builder." />
+  <title>Natarajan Selvaraj — Principal Engineer & AI Architect</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme: dark;
+      --bg:#070912;
+      --bg-2:#0d1020;
+      --panel:rgba(255,255,255,.07);
+      --panel-2:rgba(255,255,255,.105);
+      --panel-3:rgba(255,255,255,.14);
+      --text:#f7f7fb;
+      --muted:#a8aec4;
+      --soft:#737b96;
+      --line:rgba(255,255,255,.14);
+      --line-2:rgba(255,255,255,.08);
+      --brand:#8fd3ff;
+      --brand-2:#b9fbc0;
+      --brand-3:#ffb86b;
+      --hot:#ff6b9a;
+      --shadow:0 24px 70px rgba(0,0,0,.38);
+      --radius:28px;
+      --radius-sm:18px;
+      --max:1180px;
+      --font:'Inter',system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:88px;background:var(--bg)}
+    body{
+      min-height:100vh;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(circle at 12% 8%, rgba(143,211,255,.24), transparent 28rem),
+        radial-gradient(circle at 85% 18%, rgba(255,107,154,.20), transparent 25rem),
+        radial-gradient(circle at 58% 88%, rgba(185,251,192,.14), transparent 24rem),
+        linear-gradient(180deg,#070912 0%,#0b0e1a 46%,#070912 100%);
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;inset:0;pointer-events:none;z-index:-1;
+      background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+      background-size:52px 52px;
+      mask-image:linear-gradient(to bottom,rgba(0,0,0,.95),transparent 82%);
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%;height:auto}
+    p{color:var(--muted);line-height:1.72}
+    button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+    ::selection{background:var(--brand);color:#07101d}
+
+    .container{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
+    .glass{background:linear-gradient(180deg,rgba(255,255,255,.105),rgba(255,255,255,.055));border:1px solid var(--line);box-shadow:var(--shadow);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+    .eyebrow{font-family:var(--mono);font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);font-weight:600}
+    .gradient-text{background:linear-gradient(90deg,var(--brand),var(--brand-2) 48%,var(--brand-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+    .site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(7,9,18,.72);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    .nav-wrap{height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.04em}
+    .brand-mark{width:38px;height:38px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--hot));color:#07101d;font-family:var(--mono);font-weight:700;box-shadow:0 12px 32px rgba(143,211,255,.25)}
+    .brand small{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);font-weight:500;margin-top:2px}
+    .nav-links{display:flex;align-items:center;gap:6px}
+    .nav-links a,.icon-btn{padding:10px 12px;border-radius:999px;color:var(--muted);font-size:.86rem;font-weight:600;transition:.2s ease}
+    .nav-links a:hover,.icon-btn:hover{background:rgba(255,255,255,.08);color:var(--text)}
+    .nav-cta{background:rgba(143,211,255,.13)!important;color:var(--brand)!important;border:1px solid rgba(143,211,255,.24)}
+
+    .hero{padding:86px 0 44px}
+    .hero-shell{position:relative;display:grid;grid-template-columns:minmax(0,1.18fr) minmax(310px,.82fr);gap:34px;align-items:stretch}
+    .hero-card{border-radius:var(--radius);padding:clamp(28px,5vw,58px);overflow:hidden;position:relative}
+    .hero-card::after{content:"";position:absolute;right:-120px;top:-120px;width:310px;height:310px;border-radius:999px;background:radial-gradient(circle,rgba(143,211,255,.26),transparent 68%)}
+    h1{font-size:clamp(3.2rem,8vw,7.4rem);line-height:.88;letter-spacing:-.08em;margin:16px 0 24px;max-width:9ch}
+    .hero-lede{font-size:clamp(1.05rem,2vw,1.35rem);max-width:760px;color:#d9ddeb;line-height:1.56}
+    .hero-lede b{color:#fff}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:13px 18px;font-weight:800;font-size:.93rem;border:1px solid transparent;transition:transform .2s ease,background .2s ease,border-color .2s ease,color .2s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#07101d;box-shadow:0 16px 44px rgba(143,211,255,.22)}
+    .btn-ghost{background:rgba(255,255,255,.07);border-color:var(--line);color:var(--text)}
+    .btn-ghost:hover{background:rgba(255,255,255,.12)}
+
+    .profile-card{border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;justify-content:space-between;min-height:100%;position:relative;overflow:hidden}
+    .profile-card::before{content:"";position:absolute;inset:auto -20% -28% -20%;height:56%;background:linear-gradient(135deg,rgba(255,107,154,.22),rgba(143,211,255,.16));filter:blur(14px)}
+    .portrait-wrap{position:relative;border-radius:24px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);aspect-ratio:1/1.06}
+    .portrait-wrap img{width:100%;height:100%;object-fit:cover;filter:saturate(1.05) contrast(1.03)}
+    .availability{position:absolute;left:16px;right:16px;bottom:16px;padding:12px 14px;border-radius:18px;background:rgba(7,9,18,.66);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(16px);display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.82rem;color:#dfe5f5}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--brand-2);box-shadow:0 0 0 6px rgba(185,251,192,.12)}
+    .profile-meta{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+    .mini-stat{border-radius:20px;padding:16px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.1)}
+    .mini-stat strong{display:block;font-size:1.35rem;letter-spacing:-.04em}.mini-stat span{display:block;margin-top:4px;color:var(--soft);font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}
+
+    .stats-band{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+    .stat{border-radius:22px;padding:20px;background:rgba(255,255,255,.055);border:1px solid var(--line-2)}
+    .stat strong{font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:-.06em}.stat span{display:block;color:var(--muted);font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+
+    section{padding:66px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:26px}.section-head h2{font-size:clamp(2rem,4vw,3.8rem);letter-spacing:-.07em;line-height:.95}.section-head p{max-width:560px}
+
+    .about-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);gap:22px}.copy-card{border-radius:var(--radius);padding:32px}.copy-card p+p{margin-top:18px}.copy-card b{color:#fff}.facts{border-radius:var(--radius);padding:22px;display:grid;gap:10px}.fact{display:flex;justify-content:space-between;gap:18px;padding:14px;border-radius:16px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.08)}.fact span:first-child{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--soft)}.fact span:last-child{text-align:right;color:#f1f3fb;font-weight:700}
+
+    .timeline{position:relative;display:grid;gap:16px}.role-card{display:grid;grid-template-columns:190px 1fr;gap:24px;border-radius:var(--radius);padding:26px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);transition:.22s ease}.role-card:hover{transform:translateY(-3px);background:rgba(255,255,255,.085);border-color:rgba(143,211,255,.28)}.when{font-family:var(--mono);font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft)}.when b{display:block;color:var(--brand);font-size:.84rem;margin-bottom:8px}.pill{display:inline-flex;margin-top:12px;padding:6px 10px;border-radius:999px;background:rgba(185,251,192,.12);border:1px solid rgba(185,251,192,.25);color:var(--brand-2);font-weight:700;font-size:.68rem}.role-card h3{font-size:1.35rem;letter-spacing:-.04em;margin-bottom:6px}.org{color:var(--muted);font-weight:600;margin-bottom:14px}.role-card ul{list-style:none;display:grid;gap:10px;margin:0 0 16px}.role-card li{position:relative;padding-left:20px;color:#c4c9dc;line-height:1.62}.role-card li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--hot))}.role-card li b{color:#fff}.chips{display:flex;flex-wrap:wrap;gap:8px}.chip{font-family:var(--mono);font-size:.7rem;color:#dfe6fb;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.075);border:1px solid rgba(255,255,255,.1)}.chip.key{background:rgba(143,211,255,.14);border-color:rgba(143,211,255,.25);color:var(--brand)}
+
+    .cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.cap{border-radius:var(--radius-sm);padding:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);min-height:250px;display:flex;flex-direction:column}.cap-num{font-family:var(--mono);color:var(--brand);font-size:.78rem;margin-bottom:28px}.cap h3{font-size:1.15rem;line-height:1.15;letter-spacing:-.04em;margin-bottom:12px}.cap p{font-size:.93rem;margin-bottom:18px}.cap .chips{margin-top:auto}
+
+    .writing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.article{position:relative;overflow:hidden;border-radius:var(--radius-sm);padding:24px;min-height:270px;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;transition:.22s ease}.article:hover{transform:translateY(-4px);border-color:rgba(185,251,192,.28)}.article::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(143,211,255,.20),transparent 42%);opacity:.8}.article>*{position:relative}.article-top{display:flex;justify-content:space-between;gap:12px;color:var(--soft);font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em}.article h3{font-size:1.15rem;line-height:1.25;letter-spacing:-.04em;margin:28px 0 18px}.read{margin-top:auto;font-family:var(--mono);font-size:.74rem;color:var(--brand-2);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+
+    .cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cred{min-height:154px;border-radius:20px;padding:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:12px;transition:.2s ease}.cred:hover{transform:translateY(-3px);border-color:rgba(143,211,255,.26);background:rgba(255,255,255,.085)}.issuer{align-self:flex-start;padding:5px 9px;border-radius:999px;background:rgba(143,211,255,.13);color:var(--brand);font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.cred h3{font-size:.98rem;line-height:1.26;letter-spacing:-.025em}.cred span:last-child{margin-top:auto;color:var(--soft);font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}.hidden-cred{display:none}.hidden-cred.show{display:flex}.center{display:flex;justify-content:center;margin-top:22px}
+
+    .contact{padding-bottom:80px}.contact-card{border-radius:var(--radius);padding:clamp(28px,5vw,52px);display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;background:linear-gradient(135deg,rgba(143,211,255,.13),rgba(255,255,255,.06) 42%,rgba(185,251,192,.12));border:1px solid rgba(255,255,255,.13)}.contact h2{font-size:clamp(2.2rem,5vw,5rem);letter-spacing:-.08em;line-height:.93;margin-bottom:18px}.contact-links{display:grid;gap:12px}.contact-link{display:flex;justify-content:space-between;gap:16px;padding:16px 18px;border-radius:18px;background:rgba(7,9,18,.34);border:1px solid rgba(255,255,255,.1);color:#f7f8ff;font-weight:700}.contact-link small{color:var(--soft);font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}
+
+    footer{padding:26px 0 42px;color:var(--soft);font-family:var(--mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em}.foot-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);padding-top:20px}
+
+    @media(max-width:980px){.hero-shell,.about-grid,.contact-card{grid-template-columns:1fr}.cap-grid,.cred-grid{grid-template-columns:repeat(2,1fr)}.writing-grid{grid-template-columns:1fr}.role-card{grid-template-columns:1fr}.stats-band{grid-template-columns:repeat(2,1fr)}.nav-links a:not(.nav-cta){display:none}}
+    @media(max-width:620px){.container{width:min(100% - 28px,var(--max))}.hero{padding-top:44px}.nav-wrap{height:66px}.brand small{display:none}.hero-card{padding:28px}.profile-meta,.stats-band,.cap-grid,.cred-grid{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:12px}.contact-link{display:grid}.btn{width:100%}.role-card{padding:20px}.nav-cta{display:none!important}}
+
+    @media print{
+      :root{--bg:#fff;--text:#111;--muted:#444;--soft:#666;--line:#ddd;--panel:transparent;color-scheme:light}
+      body{background:#fff;color:#111;font-size:10pt}body::before,.site-header,.hero-actions,.center,.profile-card,.contact,footer{display:none!important}.container{width:100%;max-width:none}.hero{padding:0 0 10pt}.hero-shell,.about-grid,.role-card{display:block}.glass,.role-card,.cap,.article,.cred,.stat,.copy-card,.facts{box-shadow:none;background:#fff;border:1px solid #ddd}.section{padding:10pt 0}.section-head h2{font-size:18pt}.stats-band,.cap-grid,.writing-grid,.cred-grid{grid-template-columns:repeat(2,1fr)}h1{font-size:30pt;max-width:none}.hidden-cred{display:flex!important}
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Natarajan Selvaraj home">
+        <span class="brand-mark">NS</span>
+        <span>Natarajan Selvaraj<small>Principal Engineer · AI Architect</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#about">About</a><a href="#work">Work</a><a href="#stack">Stack</a><a href="#writing">Writing</a><a href="#credentials">Credentials</a><a class="nav-cta" href="mailto:natarajaninbox@gmail.com">Contact</a>
+        <button class="icon-btn" type="button" onclick="window.print()" aria-label="Save as PDF">PDF</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-shell">
+          <div class="hero-card glass">
+            <div class="eyebrow">Enterprise Agentic AI · MCP · Cloud Architecture</div>
+            <h1>Natarajan <span class="gradient-text">Selvaraj</span></h1>
+            <p class="hero-lede">Principal Engineer at <b>Autodesk</b>, designing production-grade AI assistants, multi-agent platforms, and enterprise architecture that turns ambitious ideas into reliable software.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="#work">Explore experience →</a>
+              <a class="btn btn-ghost" href="mailto:natarajaninbox@gmail.com">Email me</a>
+              <a class="btn btn-ghost" href="https://www.linkedin.com/in/natarajanselvaraj" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="btn btn-ghost" href="https://medium.com/@natarajaninbox" target="_blank" rel="noopener">Medium</a>
+            </div>
+          </div>
+          <aside class="profile-card glass" aria-label="Profile photo and highlights">
+            <div class="portrait-wrap">
+              <img src="assets/profile-image.jpeg" alt="Natarajan Selvaraj" loading="eager">
+              <div class="availability"><span>Autodesk · Novi, MI</span><span class="dot" aria-hidden="true"></span></div>
+            </div>
+            <div class="profile-meta">
+              <div class="mini-stat"><strong>23+</strong><span>Years</span></div>
+              <div class="mini-stat"><strong>11</strong><span>MCP agents</span></div>
+            </div>
+          </aside>
+        </div>
+        <div class="stats-band">
+          <div class="stat"><strong>15K+</strong><span>Employees served</span></div>
+          <div class="stat"><strong>2,000+</strong><span>Dealer sites run</span></div>
+          <div class="stat"><strong>31</strong><span>Apps containerized</span></div>
+          <div class="stat"><strong>66%</strong><span>API latency reduction</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">01 · About</div><h2>Builder of reliable AI systems.</h2></div><p>Focused on the pragmatic layer where LLMs, tools, identity, observability, and enterprise workflows have to work together.</p></div>
+        <div class="about-grid">
+          <article class="copy-card glass">
+            <p>Natarajan Selvaraj is a Principal Engineer at <b>Autodesk</b>, where he leads the architecture of Lumi — an enterprise employee assistant platform built on eleven specialized MCP agents running on AWS Bedrock AgentCore.</p>
+            <p>Across twenty-three years at Autodesk, Ford, General Motors, and Ansira, he has repeatedly turned ambiguous AI and platform initiatives into running production systems, then into architectural patterns that other teams can maintain.</p>
+            <p>His current work centers on <b>Generative AI</b>, <b>multi-agent orchestration</b>, <b>RAG quality</b>, and <b>enterprise observability</b> — the layer where research demos become durable software.</p>
+          </article>
+          <aside class="facts glass">
+            <div class="fact"><span>Role</span><span>Principal Engineer</span></div>
+            <div class="fact"><span>Company</span><span>Autodesk</span></div>
+            <div class="fact"><span>Current</span><span>Nov 2024 — Present</span></div>
+            <div class="fact"><span>Focus</span><span>Agentic AI · MCP · RAG</span></div>
+            <div class="fact"><span>Education</span><span>MCA</span></div>
+            <div class="fact"><span>Prior</span><span>Ford · GM · Ansira</span></div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">02 · Work</div><h2>Experience timeline.</h2></div><p>Enterprise platforms, automotive digital products, cloud migrations, and today’s agentic AI systems.</p></div>
+        <div class="timeline">
+          <article class="role-card">
+            <div class="when"><b>2024 · Nov</b>Present<span class="pill">Current</span></div>
+            <div><h3>Principal Engineer — AI Architect</h3><div class="org">Autodesk · Novi, MI</div><ul><li>Architected <b>Lumi</b>, an enterprise employee assistant with <b>eleven specialized MCP agents</b> on AWS Bedrock AgentCore.</li><li>Built <b>EVA-Crew</b>, a multi-agent system using CrewAI with Azure OpenAI GPT-4o for employee queries, automation, and retrieval.</li><li>Engineered <b>ChatGPT Enterprise ↔ Microsoft Copilot Studio</b> integration via Direct Line APIs, extending coverage to Slack and Teams.</li><li>Led the <b>Kore.AI migration</b> to custom MCP and AWS Bedrock AgentCore architecture, reducing platform dependency.</li><li>Established enterprise RAG with Azure AI Search and AWS Kendra, plus RAGAS quality benchmarking and OpenTelemetry instrumentation.</li></ul><div class="chips"><span class="chip key">AWS Bedrock AgentCore</span><span class="chip key">MCP</span><span class="chip">CrewAI</span><span class="chip">Azure OpenAI</span><span class="chip">RAGAS</span><span class="chip">OpenTelemetry</span></div></div>
+          </article>
+          <article class="role-card">
+            <div class="when"><b>2024 · May</b>2024 · Nov</div>
+            <div><h3>Staff Software Engineer</h3><div class="org">Ford Motor Company · Dearborn, MI</div><ul><li>Architected <b>SNAP</b> and <b>SPR Dashboards</b> with Elasticsearch, GCP Cloud Run, Python, Spring Boot, and Angular.</li><li>Reduced dashboard page load times from five-to-ten minutes to under one minute and designed API-first integration for GDIA teams.</li></ul><div class="chips"><span class="chip">Elasticsearch</span><span class="chip">GCP Cloud Run</span><span class="chip">Spring Boot</span><span class="chip">Angular</span><span class="chip">Python</span></div></div>
+          </article>
+          <article class="role-card">
+            <div class="when"><b>2020 · Apr</b>2024 · Mar</div>
+            <div><h3>Software Development Manager</h3><div class="org">Ansira · Remote, MI</div><ul><li>Led engineering delivery and AWS cloud architecture for automotive digital marketing platforms serving <b>2,000+ dealer websites</b>.</li><li>Architected the <b>Incentive Imports Framework</b>, reducing new OEM integration from months to weeks.</li><li>Drove Oracle to AWS Aurora Postgres migration and Redis distributed cache adoption, reducing API response times by <b>66%</b>.</li><li>Containerized <b>thirty-one Java/Spring applications</b> and introduced observability with OpenTelemetry, Prometheus, Grafana, and OpsGenie.</li></ul><div class="chips"><span class="chip key">AWS Aurora</span><span class="chip">Redis</span><span class="chip">Java/Spring</span><span class="chip">Grafana</span><span class="chip">DevOps</span></div></div>
+          </article>
+          <article class="role-card">
+            <div class="when"><b>2013 · Nov</b>2020 · Apr</div>
+            <div><h3>Software Engineer III & IV</h3><div class="org">Ansira / CDK / Sincro · Detroit</div><ul><li>Developed core platform services for vehicle inventory, offer management, and dealer website integrations across major OEMs.</li><li>Introduced SonarQube quality gates, Correlation-ID tracing, and cross-team knowledge-sharing sessions.</li></ul></div>
+          </article>
+          <article class="role-card">
+            <div class="when"><b>2006 · Sep</b>2013 · Nov</div>
+            <div><h3>Information Architect</h3><div class="org">General Motors · Mphasis</div><ul><li>Designed and developed GM Purchasing Web Applications including Global Quality Tracking, Tool Move, Capacity Planning, and contracting systems.</li><li>Led Linux environment migration for GM purchasing systems, reducing infrastructure cost.</li></ul></div>
+          </article>
+          <article class="role-card">
+            <div class="when"><b>2003 · May</b>2006 · Sep</div>
+            <div><h3>Software Developer</h3><div class="org">Kaizen & LT Infotech India · Chennai</div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">03 · Stack</div><h2>Capabilities.</h2></div><p>The practical toolkit for shipping enterprise AI with guardrails, quality measurement, and operations baked in.</p></div>
+        <div class="cap-grid">
+          <article class="cap"><div class="cap-num">01</div><h3>Agentic AI & Generative AI</h3><p>Multi-agent systems, orchestration patterns, and evaluation harnesses for production.</p><div class="chips"><span class="chip key">MCP</span><span class="chip">CrewAI</span><span class="chip">LangGraph</span><span class="chip">FastMCP</span><span class="chip">RAGAS</span></div></article>
+          <article class="cap"><div class="cap-num">02</div><h3>Cloud & AI Platforms</h3><p>The runtime substrate where agents live, vectors are queried, and traffic flows.</p><div class="chips"><span class="chip key">AWS Bedrock</span><span class="chip">Azure OpenAI</span><span class="chip">AI Search</span><span class="chip">AWS Kendra</span></div></article>
+          <article class="cap"><div class="cap-num">03</div><h3>Languages & Frameworks</h3><p>Polyglot engineering chosen by fit: backend, frontend, APIs, and integration layers.</p><div class="chips"><span class="chip key">Python</span><span class="chip key">Java</span><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Spring Boot</span></div></article>
+          <article class="cap"><div class="cap-num">04</div><h3>Observability & DevOps</h3><p>Release systems and telemetry that catch problems before customers do.</p><div class="chips"><span class="chip key">OpenTelemetry</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Terraform</span><span class="chip">Docker</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">04 · Writing</div><h2>Field notes.</h2></div><p>Production AI engineering notes published on Medium.</p></div>
+        <div class="writing-grid">
+          <a class="article" href="https://medium.com/@natarajaninbox/unified-rag-evaluation-schema-cross-supplier-quality-measurement-for-amazon-bedrock-and-agentic-02b4364351c0" target="_blank" rel="noopener"><div class="article-top"><span>01</span><span>RAG Evaluation</span></div><h3>Unified RAG Evaluation Schema: Cross-Supplier Quality Measurement for Amazon Bedrock and Agentic AI</h3><span class="read">Read article →</span></a>
+          <a class="article" href="https://medium.com/@natarajaninbox/stateless-http-container-isolation-why-mcp-servers-on-serverless-runtimes-must-disable-d4c6abe1ac5a" target="_blank" rel="noopener"><div class="article-top"><span>02</span><span>MCP Architecture</span></div><h3>Stateless HTTP & Container Isolation: Why MCP Servers on Serverless Runtimes Must Disable Sessions</h3><span class="read">Read article →</span></a>
+          <a class="article" href="https://medium.com/@natarajaninbox/the-evidence-logged-agent-loop-structured-tool-call-logging-for-agentic-systems-dfc511b6735f" target="_blank" rel="noopener"><div class="article-top"><span>03</span><span>Observability</span></div><h3>The Evidence-Logged Agent Loop: Structured Tool-Call Logging for Agentic Systems</h3><span class="read">Read article →</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="credentials">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">05 · Credentials</div><h2>Certifications.</h2></div><p>AI agent platforms, cloud foundations, and engineering credentials.</p></div>
+        <div class="cred-grid">
+          <a class="cred" href="assets/certificates/2026-CrewAI.png" target="_blank" rel="noopener"><span class="issuer">CrewAI</span><h3>Multi-Agent Systems Certified</h3><span>View →</span></a>
+          <a class="cred" href="https://verify.skilljar.com/c/zfz79m8hm8y3" target="_blank" rel="noopener"><span class="issuer">Skilljar</span><h3>CrewAI Advanced — Verified Credential</h3><span>Verify →</span></a>
+          <a class="cred" href="https://cp.certmetrics.com/amazon/en/public/verify/credential/MFB94C8DM2FEQCGN" target="_blank" rel="noopener"><span class="issuer">AWS</span><h3>Certified Cloud Practitioner</h3><span>Verify →</span></a>
+          <a class="cred" href="https://www.linkedin.com/learning/certificates/4ac35474fcaa97720e7db6a77b70135131de0fffd84fce25e4500772c259a880?trk=share_certificate" target="_blank" rel="noopener"><span class="issuer">LinkedIn</span><h3>Secure GenAI with Amazon Bedrock</h3><span>Verify →</span></a>
+          <a class="cred" href="https://www.linkedin.com/learning/certificates/9b41243875595f0f080bdbc1e1324839c023472e0b77f161d00896ed702e08d0?trk=share_certificate" target="_blank" rel="noopener"><span class="issuer">LinkedIn</span><h3>Learning Amazon Bedrock</h3><span>Verify →</span></a>
+          <a class="cred" href="https://www.linkedin.com/learning/certificates/ca4fc032fb9cf5d9aa020cd5d4389d9aed02ca1461b6a4be55cfc5d20c6b112a?trk=share_certificate" target="_blank" rel="noopener"><span class="issuer">Microsoft</span><h3>Autonomous Agents in Copilot Studio</h3><span>Verify →</span></a>
+          <a class="cred" href="https://www.linkedin.com/learning/certificates/3251a45afe8899dac640b0ad3faed663de429f7b09e1ffceef211a91fc5c9f70?trk=share_certificate" target="_blank" rel="noopener"><span class="issuer">Microsoft</span><h3>Extend M365 Copilot with AI Agents</h3><span>Verify →</span></a>
+          <a class="cred" href="https://www.linkedin.com/learning/certificates/e47226ea072041e6968d87c8d526fce6e83c960acef70865bb802e49ab16f901?trk=share_certificate" target="_blank" rel="noopener"><span class="issuer">Microsoft</span><h3>Building in Microsoft Copilot Studio</h3><span>Verify →</span></a>
+          <a class="cred hidden-cred" href="assets/certificates/CertificateOfCompletion_Agentic%20AI%20Building%20DataFirst%20AI%20Agents.pdf" target="_blank" rel="noopener"><span class="issuer">LinkedIn</span><h3>Agentic AI: Data-First Agents</h3><span>PDF →</span></a>
+          <a class="cred hidden-cred" href="assets/certificates/CertificateOfCompletion_Build%20AI%20Agents%20and%20Chatbots%20with%20LangGraph.pdf" target="_blank" rel="noopener"><span class="issuer">LinkedIn</span><h3>AI Agents and Chatbots with LangGraph</h3><span>PDF →</span></a>
+          <a class="cred hidden-cred" href="assets/certificates/CertificateOfCompletion_Build%20AI%20Agents%20with%20n8n.pdf" target="_blank" rel="noopener"><span class="issuer">LinkedIn</span><h3>Build AI Agents with n8n</h3><span>PDF →</span></a>
+          <a class="cred hidden-cred" href="https://learn.deeplearning.ai/certificates/8efe3eff-d326-4862-afa7-8ce9c4b31da5" target="_blank" rel="noopener"><span class="issuer">DeepLearning.AI</span><h3>DeepLearning.AI Short Course</h3><span>Verify →</span></a>
+        </div>
+        <div class="center"><button class="btn btn-ghost" type="button" id="credentialToggle">Show all credentials</button></div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <div><div class="eyebrow">Contact</div><h2>Let’s build thoughtful AI.</h2><p>Open to conversations about enterprise AI architecture, MCP services, RAG quality, observability, and production engineering.</p></div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:natarajaninbox@gmail.com"><small>Email</small><span>natarajaninbox@gmail.com</span></a>
+            <a class="contact-link" href="https://www.linkedin.com/in/natarajanselvaraj" target="_blank" rel="noopener"><small>LinkedIn</small><span>/in/natarajanselvaraj</span></a>
+            <a class="contact-link" href="https://medium.com/@natarajaninbox" target="_blank" rel="noopener"><small>Medium</small><span>@natarajaninbox</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot-row"><span>© 2026 · Natarajan Selvaraj</span><span>Single-page portfolio · GitHub Pages ready</span></div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('credentialToggle');
+    if(toggle){
+      toggle.addEventListener('click',()=>{
+        const extras=[...document.querySelectorAll('.hidden-cred')];
+        const opening=!extras.some(card=>card.classList.contains('show'));
+        extras.forEach(card=>card.classList.toggle('show',opening));
+        toggle.textContent=opening?'Show fewer credentials':'Show all credentials';
+      });
+    }
+  </script>
+</body>
+</html>

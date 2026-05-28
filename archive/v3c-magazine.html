@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natarajan Selvaraj — Issue 01</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root,[data-theme="light"]{
+  --bg:#efeae0;--surface:#f8f3e7;--surface-2:#e8e1d2;--block:#1f1d1a;
+  --ink:#1a1816;--ink-2:#3a3631;--ink-3:#74706a;--ink-4:#a8a395;
+  --rule:#d4ccb8;
+  --accent:#ed6a3a;
+  --accent-2:#0a4d4a;
+  --accent-3:#c89148;
+  --paper-white:#fcfaf3;
+  --font-display:'Fraunces',Georgia,serif;
+  --font-body:'Inter','Helvetica Neue',sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+  --txt-xxs:0.6875rem;--txt-xs:0.78rem;--txt-sm:0.875rem;--txt-base:1rem;
+  --txt-lg:1.15rem;--txt-xl:1.45rem;--txt-2xl:1.75rem;--txt-3xl:2rem;
+  --txt-name:clamp(3.5rem,9vw,7rem);
+  --s-1:0.25rem;--s-2:0.5rem;--s-3:0.75rem;--s-4:1rem;--s-5:1.25rem;
+  --s-6:1.5rem;--s-8:2rem;--s-10:2.5rem;--s-12:3rem;--s-16:4rem;
+  --content:1200px;
+  --transition:200ms cubic-bezier(0.16,1,0.3,1);
+}
+[data-theme="dark"]{
+  --bg:#161310;--surface:#1d1a15;--surface-2:#241f17;--block:#f5efe1;
+  --ink:#f5efe1;--ink-2:#d8d1bf;--ink-3:#928c80;--ink-4:#5b574d;
+  --rule:#322d24;
+  --accent:#f08456;--accent-2:#5cb3ae;--accent-3:#d4a85a;
+  --paper-white:#1a1714;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth;scroll-padding-top:4.5rem;background:var(--bg)}
+body{min-height:100dvh;font-family:var(--font-body);font-size:var(--txt-base);line-height:1.55;color:var(--ink);background:var(--bg);overflow-x:hidden;font-weight:400}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3,h4{text-wrap:balance;line-height:1.05}
+p{text-wrap:pretty;max-width:64ch}
+a{color:var(--accent);text-decoration:none;transition:color var(--transition)}
+a:hover{color:var(--ink)}
+button{cursor:pointer;background:none;border:none;font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+::selection{background:var(--accent);color:var(--paper-white)}
+
+.container{max-width:var(--content);margin-inline:auto;padding-inline:clamp(1.25rem,3vw,2rem)}
+.serif{font-family:var(--font-display);font-weight:400}
+.mono{font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3)}
+
+/* Top bar */
+.topbar{background:var(--block);color:var(--paper-white);padding-block:var(--s-2)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--s-4);font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.14em;text-transform:uppercase}
+.topbar-left{display:flex;gap:var(--s-4);flex-wrap:wrap;color:var(--ink-4)}
+.topbar-left .pill{background:var(--accent);color:#fff;padding:2px 8px;border-radius:2px}
+.topbar nav{display:flex;gap:var(--s-4);align-items:center}
+.topbar nav a{color:var(--paper-white);opacity:0.75}
+.topbar nav a:hover{opacity:1;color:var(--accent)}
+.icon-btn{width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;color:var(--paper-white);opacity:0.75;border-radius:50%;transition:all var(--transition)}
+.icon-btn:hover{opacity:1;background:color-mix(in oklch,var(--paper-white) 15%,transparent)}
+
+/* Magazine cover */
+.cover{padding-block:var(--s-8) var(--s-10);position:relative}
+.cover-flag{display:flex;align-items:baseline;justify-content:space-between;padding-bottom:var(--s-3);border-bottom:3px solid var(--ink);margin-bottom:var(--s-6);font-family:var(--font-mono);font-size:var(--txt-xs);letter-spacing:0.14em;text-transform:uppercase}
+.cover-flag .left{display:flex;gap:var(--s-4);flex-wrap:wrap;color:var(--ink-2)}
+.cover-flag .left b{color:var(--accent);font-weight:700}
+.cover-flag .right{color:var(--ink-3)}
+.cover-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:var(--s-6);align-items:end}
+.cover-text{position:relative}
+.cover-eyebrow{font-family:var(--font-mono);font-size:var(--txt-xs);letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:var(--s-3);display:inline-block;padding:4px 10px;background:var(--surface);border:1px solid var(--ink);border-radius:2px}
+.cover-name{font-family:var(--font-display);font-size:var(--txt-name);font-weight:300;line-height:0.88;letter-spacing:-0.035em;color:var(--ink);margin-bottom:var(--s-4)}
+.cover-name .ital{font-style:italic;color:var(--accent);font-weight:400}
+.cover-tag{font-family:var(--font-display);font-style:italic;font-size:var(--txt-xl);color:var(--ink-2);max-width:30ch;line-height:1.3;margin-bottom:var(--s-5)}
+.cover-actions{display:flex;flex-wrap:wrap;gap:var(--s-3);margin-top:var(--s-3)}
+.btn{display:inline-flex;align-items:center;gap:var(--s-2);padding:0.6rem 1.2rem;border-radius:2px;font-size:var(--txt-sm);font-weight:600;letter-spacing:0.01em;transition:all var(--transition);border:1px solid transparent;cursor:pointer;font-family:var(--font-body)}
+.btn-solid{background:var(--ink);color:var(--bg)!important;border-color:var(--ink)}
+.btn-solid:hover{background:var(--accent);border-color:var(--accent);color:#fff!important;transform:translateY(-1px)}
+.btn-line{border-color:var(--ink);color:var(--ink)!important;background:transparent}
+.btn-line:hover{background:var(--ink);color:var(--bg)!important}
+.btn-accent{background:var(--accent);color:#fff!important;border-color:var(--accent)}
+.btn-accent:hover{background:var(--ink);border-color:var(--ink)}
+
+/* Portrait card with offset color block */
+.portrait{position:relative;justify-self:end;width:100%;max-width:320px}
+.portrait::before{content:"";position:absolute;top:-14px;right:-14px;width:100%;height:100%;background:var(--accent);z-index:0;border-radius:2px}
+.portrait::after{content:"";position:absolute;bottom:-14px;left:-14px;width:60%;height:30%;background:var(--accent-2);z-index:0;border-radius:2px;opacity:0.18}
+.portrait-inner{position:relative;z-index:1;background:var(--surface);padding:10px;border:1px solid var(--ink)}
+.portrait-inner img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:contrast(1.05) saturate(1.05)}
+.portrait-cap{display:flex;justify-content:space-between;margin-top:var(--s-2);padding-top:var(--s-2);border-top:1px solid var(--rule);font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3)}
+.portrait-cap b{color:var(--accent);font-weight:600}
+
+/* Stats — magazine style */
+.stats-band{background:var(--ink);color:var(--paper-white);padding-block:var(--s-5);margin-top:var(--s-8)}
+.stats-band .container{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s-5);align-items:center}
+.stats-band .stat{position:relative}
+.stats-band .stat + .stat::before{content:"";position:absolute;left:calc(-1 * var(--s-5) / 2);top:50%;transform:translateY(-50%);width:1px;height:36px;background:color-mix(in oklch,var(--paper-white) 18%,transparent)}
+.stats-band .stat-num{font-family:var(--font-display);font-size:var(--txt-2xl);line-height:1;font-weight:300;letter-spacing:-0.02em}
+.stats-band .stat-num em{font-style:italic;color:var(--accent);font-weight:400}
+.stats-band .stat-label{font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-4);margin-top:var(--s-1)}
+
+/* Section primitives */
+.section{padding-block:var(--s-10);position:relative}
+.section-head{display:grid;grid-template-columns:auto 1fr;gap:var(--s-3) var(--s-4);align-items:end;margin-bottom:var(--s-6);padding-bottom:var(--s-3);border-bottom:1px solid var(--ink)}
+.section-head .feature-num{font-family:var(--font-display);font-size:3rem;color:var(--accent);line-height:0.85;letter-spacing:-0.04em;font-weight:300;font-style:italic}
+.section-head h2{font-family:var(--font-display);font-size:var(--txt-3xl);line-height:1;letter-spacing:-0.02em;font-weight:400;color:var(--ink)}
+.section-head h2 em{font-style:italic;color:var(--accent)}
+.section-head .lede{grid-column:2;font-size:var(--txt-sm);color:var(--ink-3);max-width:60ch;line-height:1.55;font-weight:400}
+
+/* About — magazine columns */
+.about-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:var(--s-8);align-items:start}
+.about-body{font-size:var(--txt-base);line-height:1.7;color:var(--ink)}
+.about-body p+p{margin-top:var(--s-3)}
+.about-body p:first-child::first-letter{
+  font-family:var(--font-display);font-size:5rem;line-height:0.85;float:left;margin:0.2rem 0.6rem 0 0;color:var(--accent);font-weight:300;font-style:italic
+}
+.about-body b{color:var(--ink);font-weight:600}
+.about-body em{color:var(--accent-2);font-style:italic;font-weight:500}
+.pullquote{font-family:var(--font-display);font-style:italic;font-size:var(--txt-xl);line-height:1.3;color:var(--ink);padding:var(--s-4);background:var(--surface);border-left:3px solid var(--accent);margin-block:var(--s-5);font-weight:400}
+.pullquote cite{display:block;font-style:normal;font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-3);margin-top:var(--s-2);font-weight:500}
+
+.factsheet{background:var(--block);color:var(--paper-white);padding:var(--s-5);position:relative}
+.factsheet::before{content:"FACTS";position:absolute;top:-12px;left:var(--s-4);background:var(--accent);color:#fff;padding:3px 10px;font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.18em;font-weight:600}
+.facts{display:flex;flex-direction:column;gap:var(--s-3);margin-top:var(--s-2)}
+.fact{display:grid;grid-template-columns:75px 1fr;gap:var(--s-3);padding-bottom:var(--s-2);border-bottom:1px solid color-mix(in oklch,var(--paper-white) 12%,transparent)}
+.fact:last-child{border-bottom:0;padding-bottom:0}
+.fact-k{font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-4);padding-top:2px}
+.fact-v{font-size:var(--txt-sm);color:var(--paper-white);line-height:1.45}
+.fact-v b{color:var(--accent);font-weight:600}
+
+/* Work — feature article */
+.work-grid{display:grid;grid-template-columns:130px 1fr;gap:var(--s-8);align-items:start}
+.work-aside{position:sticky;top:4rem;font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-3);align-self:start}
+.work-aside-title{color:var(--accent);margin-bottom:var(--s-3);padding-bottom:var(--s-2);border-bottom:1px solid var(--rule)}
+.work-aside ul{list-style:none;display:flex;flex-direction:column;gap:var(--s-2)}
+.work-aside a{color:var(--ink-3);font-size:var(--txt-xxs);letter-spacing:0.12em}
+.work-aside a:hover{color:var(--accent)}
+.timeline{display:flex;flex-direction:column;gap:var(--s-8)}
+.role{position:relative;padding-left:var(--s-6);border-left:2px solid var(--rule)}
+.role::before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;background:var(--accent);border-radius:50%;border:2px solid var(--bg)}
+.role.is-current::before{background:var(--ink);box-shadow:0 0 0 3px var(--accent)}
+.role-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:var(--s-3);margin-bottom:var(--s-1)}
+.role-when{font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.role-current-pill{display:inline-block;padding:1px 7px;background:var(--accent);color:#fff;font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.06em;border-radius:2px}
+.role-title{font-family:var(--font-display);font-size:var(--txt-2xl);font-weight:400;color:var(--ink);letter-spacing:-0.02em;line-height:1.1;margin-bottom:var(--s-1)}
+.role-org{font-size:var(--txt-sm);color:var(--ink-2);margin-bottom:var(--s-3)}
+.role-org b{color:var(--ink);font-weight:600}
+.role-bullets{list-style:none;display:flex;flex-direction:column;gap:var(--s-2);margin-bottom:var(--s-3)}
+.role-bullets li{position:relative;padding-left:var(--s-4);font-size:var(--txt-sm);line-height:1.55;color:var(--ink-2)}
+.role-bullets li::before{content:"▸";position:absolute;left:0;top:0;color:var(--accent);font-size:0.7rem;line-height:1.7}
+.role-bullets li b{color:var(--ink);font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s-1)}
+.chip{display:inline-block;padding:2px 9px;background:var(--surface);border:1px solid var(--rule);color:var(--ink-2);border-radius:99px;font-size:var(--txt-xxs);font-weight:500;letter-spacing:0.02em}
+.chip.is-key{background:var(--ink);color:var(--paper-white);border-color:var(--ink)}
+
+/* Capabilities — 4 colored blocks */
+.caps{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--s-4)}
+.cap{padding:var(--s-5);background:var(--surface);border:1px solid var(--ink);position:relative;overflow:hidden}
+.cap::before{content:"";position:absolute;top:0;left:0;width:100%;height:6px;background:var(--accent)}
+.cap:nth-child(2)::before{background:var(--accent-2)}
+.cap:nth-child(3)::before{background:var(--accent-3)}
+.cap:nth-child(4)::before{background:var(--ink)}
+.cap-head{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s-3);margin-bottom:var(--s-2);padding-top:var(--s-2)}
+.cap-title{font-family:var(--font-display);font-size:var(--txt-xl);font-weight:400;color:var(--ink);letter-spacing:-0.015em;line-height:1.1}
+.cap-num{font-family:var(--font-display);font-size:var(--txt-2xl);font-weight:300;color:var(--accent);line-height:1;font-style:italic}
+.cap:nth-child(2) .cap-num{color:var(--accent-2)}
+.cap:nth-child(3) .cap-num{color:var(--accent-3)}
+.cap:nth-child(4) .cap-num{color:var(--ink)}
+.cap-desc{font-size:var(--txt-sm);color:var(--ink-3);margin-bottom:var(--s-3);line-height:1.5}
+
+/* Dispatches — magazine teaser cards */
+.dispatches{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-4)}
+.dispatch{position:relative;background:var(--surface);border:1px solid var(--ink);padding:var(--s-5);display:flex;flex-direction:column;gap:var(--s-3);transition:all var(--transition);min-height:280px;overflow:hidden}
+.dispatch:hover{transform:translateY(-3px);background:var(--ink);color:var(--paper-white)}
+.dispatch:hover .dispatch-num,.dispatch:hover .dispatch-cta{color:var(--accent)}
+.dispatch:hover .dispatch-title{color:var(--paper-white)}
+.dispatch:hover .dispatch-cat{color:var(--ink-4);border-color:color-mix(in oklch,var(--paper-white) 20%,transparent)}
+.dispatch:hover .dispatch-tag{color:var(--accent)}
+.dispatch-num{font-family:var(--font-display);font-size:3rem;line-height:0.85;color:var(--accent);letter-spacing:-0.04em;font-weight:300;font-style:italic;transition:color var(--transition)}
+.dispatch-cat{font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.18em;text-transform:uppercase;color:var(--ink-3);padding-block:var(--s-2);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);font-weight:600;transition:all var(--transition)}
+.dispatch-title{font-family:var(--font-display);font-size:var(--txt-lg);line-height:1.2;color:var(--ink);font-weight:500;letter-spacing:-0.015em;flex:1;transition:color var(--transition)}
+.dispatch-tags{display:flex;flex-wrap:wrap;gap:var(--s-2)}
+.dispatch-tag{font-family:var(--font-mono);font-size:var(--txt-xxs);color:var(--accent);text-transform:lowercase;transition:color var(--transition)}
+.dispatch-tag::before{content:"#"}
+.dispatch-cta{display:inline-flex;align-items:center;gap:var(--s-2);font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-top:auto;padding-top:var(--s-2);border-top:1px solid var(--rule);transition:all var(--transition)}
+.dispatch:hover .dispatch-cta{border-color:color-mix(in oklch,var(--paper-white) 20%,transparent)}
+
+/* Credentials — bold ribbon tiles */
+.creds{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(240px,100%),1fr));gap:var(--s-3)}
+.cred{padding:var(--s-4);background:var(--surface);border:1px solid var(--rule);display:flex;flex-direction:column;gap:var(--s-2);position:relative;overflow:hidden;transition:all var(--transition);min-height:140px}
+.cred:hover{border-color:var(--ink);background:var(--paper-white);transform:translateY(-2px)}
+.cred-ribbon{position:absolute;top:0;left:0;padding:3px 11px;font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.1em;font-weight:700;color:#fff}
+.cred-ribbon.aws{background:#ff9900;color:#1a1a1a}
+.cred-ribbon.msft{background:#0a64c6}
+.cred-ribbon.crew{background:#5d3fd3}
+.cred-ribbon.linkedin{background:#0a66c2}
+.cred-ribbon.skilljar{background:#5a7a6a}
+.cred-ribbon.dlai{background:#0098db}
+.cred-ribbon.sun{background:#d6364c}
+.cred-head{margin-top:1.4rem}
+.cred-title{font-family:var(--font-display);font-size:var(--txt-base);line-height:1.2;color:var(--ink);font-weight:500;margin-bottom:var(--s-1);letter-spacing:-0.01em}
+.cred-meta{font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-3);line-height:1.4}
+.cred-foot{margin-top:auto;padding-top:var(--s-2);border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:var(--s-2)}
+.cred-issuer{font-size:var(--txt-xxs);color:var(--ink-3)}
+.cred-verify{font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.cred-extra{display:none}
+.cred-extra.is-open{display:flex}
+.cred-toggle{margin-top:var(--s-6);text-align:center}
+
+/* Contact / Colophon — dark block */
+.contact{background:var(--ink);color:var(--paper-white);padding-block:var(--s-12);margin-top:var(--s-8);position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;top:0;right:0;width:200px;height:200px;background:var(--accent);border-radius:50%;transform:translate(40%,-40%);opacity:0.9}
+.contact .container{position:relative}
+.contact-flag{font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:var(--s-5);padding-bottom:var(--s-2);border-bottom:1px solid color-mix(in oklch,var(--paper-white) 20%,transparent);display:flex;justify-content:space-between}
+.contact-flag span{color:var(--ink-4)}
+.contact-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:var(--s-8);align-items:start}
+.contact h2{font-family:var(--font-display);font-size:clamp(2.25rem,4vw + 0.5rem,3.5rem);font-weight:300;letter-spacing:-0.025em;line-height:1;margin-bottom:var(--s-4);color:var(--paper-white)}
+.contact h2 em{font-style:italic;color:var(--accent);font-weight:400}
+.contact-body{font-size:var(--txt-base);line-height:1.65;color:var(--ink-4);max-width:48ch}
+.contact-actions{display:flex;flex-wrap:wrap;gap:var(--s-3);margin-top:var(--s-5)}
+.contact .btn-line{border-color:var(--ink-4);color:var(--paper-white)!important;background:transparent}
+.contact .btn-line:hover{background:var(--paper-white);color:var(--ink)!important}
+.contact-meta{display:flex;flex-direction:column;gap:var(--s-3);font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.1em;text-transform:uppercase}
+.contact-meta-row{display:grid;grid-template-columns:70px 1fr;gap:var(--s-3);padding-bottom:var(--s-2);border-bottom:1px solid color-mix(in oklch,var(--paper-white) 12%,transparent)}
+.contact-meta-row .k{color:var(--ink-4)}
+.contact-meta-row .v,.contact-meta-row a{color:var(--paper-white)}
+.contact-meta-row a{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+
+/* Footer */
+.foot{background:var(--block);color:var(--paper-white);padding-block:var(--s-5);border-top:1px solid color-mix(in oklch,var(--paper-white) 12%,transparent)}
+.foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--s-3);font-family:var(--font-mono);font-size:var(--txt-xxs);letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-4)}
+.foot-inner a{color:var(--ink-4)}
+.foot-inner a:hover{color:var(--accent)}
+
+@media(max-width:920px){
+  .cover-grid,.about-grid,.contact-grid{grid-template-columns:1fr;gap:var(--s-5)}
+  .portrait{justify-self:start;max-width:240px}
+  .work-grid{grid-template-columns:1fr}
+  .work-aside{position:static;display:flex;gap:var(--s-4);flex-wrap:wrap;padding-bottom:var(--s-3);border-bottom:1px solid var(--rule)}
+  .work-aside ul{flex-direction:row;flex-wrap:wrap;gap:var(--s-3)}
+  .dispatches,.caps{grid-template-columns:1fr 1fr}
+  .stats-band .container{grid-template-columns:1fr 1fr;gap:var(--s-3)}
+  .stats-band .stat + .stat::before{display:none}
+  .section-head{grid-template-columns:auto 1fr;gap:var(--s-2)}
+  .section-head .lede{grid-column:1 / -1}
+}
+@media(max-width:600px){
+  .topbar nav a:not(.icon-btn){display:none}
+  .dispatches,.caps,.creds{grid-template-columns:1fr}
+  .stats-band .container{grid-template-columns:1fr 1fr;gap:var(--s-3)}
+  .fact{grid-template-columns:1fr;gap:var(--s-1)}
+}
+
+@media print{
+  :root,[data-theme]{--bg:#fff;--surface:#fafaf6;--surface-2:#f4efe5;--block:#1a1816;--paper-white:#fff;--ink:#1a1816;--ink-2:#2c2c2a;--ink-3:#555;--ink-4:#888;--rule:#d4ccb8;--accent:#c25530;--accent-2:#0a4d4a;--accent-3:#a87a3a}
+  @page{size:letter;margin:0.45in 0.5in}
+  html,body{background:#fff!important;font-size:9.5pt;line-height:1.4}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .topbar,.foot,.contact,.cover-actions,.cred-toggle,.icon-btn,.work-aside,[data-print],[data-theme-toggle]{display:none!important}
+  .container{max-width:100%;padding:0}
+  .cover{padding-block:0 6pt}
+  .cover-flag{margin-bottom:4pt;padding-bottom:2pt;border-bottom-width:2px;font-size:6.5pt}
+  .cover-grid{grid-template-columns:auto 1fr;gap:12pt;align-items:center;flex-direction:row-reverse}
+  .portrait{max-width:80px;justify-self:start;order:-1}
+  .portrait::before,.portrait::after{display:none}
+  .portrait-inner{padding:3px}
+  .portrait-cap{display:none}
+  .cover-eyebrow{font-size:6pt;padding:2pt 6pt;margin-bottom:2pt}
+  .cover-name{font-size:24pt;line-height:0.92;margin-bottom:2pt}
+  .cover-tag{font-size:10pt;margin-bottom:2pt}
+  .cover-text::after{
+    content:"natarajaninbox@gmail.com   ·   linkedin.com/in/natarajanselvaraj";
+    display:block;font-family:var(--font-mono);font-size:7pt;color:var(--accent);margin-top:3pt;padding-top:2pt;border-top:1px solid var(--rule);
+  }
+  .stats-band{margin-top:5pt;padding-block:3pt;background:var(--block)}
+  .stats-band .container{grid-template-columns:repeat(4,1fr);gap:8pt}
+  .stats-band .stat + .stat::before{display:none}
+  .stats-band .stat-num{font-size:12pt}
+  .stats-band .stat-label{font-size:5.5pt}
+  .section{padding-block:7pt;border-top:1px solid var(--rule)}
+  .section-head{margin-bottom:5pt;padding-bottom:3pt}
+  .section-head .feature-num{font-size:18pt}
+  .section-head h2{font-size:14pt}
+  .section-head .lede{font-size:8pt}
+  .about-grid{grid-template-columns:1.6fr 1fr;gap:12pt}
+  .about-body{font-size:9pt;line-height:1.45}
+  .about-body p:first-child::first-letter{font-size:24pt}
+  .pullquote{font-size:10pt;padding:4pt 6pt;border-left-width:2pt;margin-block:4pt}
+  .factsheet{padding:6pt;background:var(--block)}
+  .factsheet::before{font-size:6pt;padding:1.5pt 6pt;top:-7pt}
+  .fact{grid-template-columns:50pt 1fr;gap:4pt;padding-bottom:2pt}
+  .fact-k{font-size:6pt}
+  .fact-v{font-size:8pt}
+  .work-grid{grid-template-columns:1fr;gap:0}
+  .timeline{gap:6pt}
+  .role{padding-left:10pt;border-left-width:1.5pt;break-inside:avoid}
+  .role::before{left:-4pt;top:4pt;width:7pt;height:7pt}
+  .role-head{gap:5pt;margin-bottom:1pt}
+  .role-when{font-size:6.5pt}
+  .role-current-pill{font-size:6pt;padding:1pt 4pt}
+  .role-title{font-size:11pt;margin-bottom:1pt}
+  .role-org{font-size:8.5pt;margin-bottom:2pt}
+  .role-bullets{gap:1.5pt;margin-bottom:2pt}
+  .role-bullets li{font-size:8.5pt;line-height:1.4;padding-left:8pt}
+  .chip{font-size:6pt;padding:1pt 5pt}
+  .caps{grid-template-columns:repeat(2,1fr);gap:4pt}
+  .cap{padding:5pt 7pt;break-inside:avoid}
+  .cap::before{height:3pt}
+  .cap-head{margin-bottom:2pt;padding-top:2pt}
+  .cap-title{font-size:10pt}
+  .cap-num{font-size:14pt}
+  .cap-desc{font-size:7.5pt;margin-bottom:2pt}
+  .dispatches{grid-template-columns:repeat(3,1fr);gap:4pt}
+  .dispatch{padding:5pt 7pt;min-height:0;break-inside:avoid;gap:3pt}
+  .dispatch:hover{background:var(--surface);color:var(--ink);transform:none}
+  .dispatch-num{font-size:20pt}
+  .dispatch-cat{font-size:5.5pt;padding-block:1pt}
+  .dispatch-title{font-size:9pt;line-height:1.2}
+  .dispatch-cta{font-size:6pt;padding-top:1pt}
+  .creds{grid-template-columns:repeat(3,1fr);gap:3pt}
+  .cred,.cred-extra{display:flex!important;padding:4pt 6pt;min-height:0;break-inside:avoid;gap:1pt}
+  .cred:hover{transform:none;background:var(--surface)}
+  .cred-ribbon{font-size:5.5pt;padding:1.5pt 5pt}
+  .cred-head{margin-top:10pt}
+  .cred-title{font-size:8.5pt;line-height:1.2}
+  .cred-meta{font-size:5.5pt}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div class="topbar-left">
+        <span class="pill">Issue 01</span>
+        <span>The Architect · Vol. xxvi</span>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#dispatches">Dispatches</a>
+        <a href="#creds">Credentials</a>
+        <button class="icon-btn" data-print onclick="window.print()" aria-label="Print" title="Print / Save as PDF">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        </button>
+        <button class="icon-btn" data-theme-toggle aria-label="Toggle theme">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section class="cover">
+  <div class="container">
+    <div class="cover-flag">
+      <div class="left">
+        <span><b>The Architect</b> · Folio One</span>
+        <span>An Editorial Profile</span>
+      </div>
+      <div class="right">Estd. MMXXVI</div>
+    </div>
+    <div class="cover-grid">
+      <div class="cover-text">
+        <span class="cover-eyebrow">Principal Engineer · AI Architect</span>
+        <h1 class="cover-name">
+          Natarajan<br>
+          <span class="ital">Selvaraj.</span>
+        </h1>
+        <p class="cover-tag">Builder of enterprise agentic systems &mdash; the architecture, not just the model.</p>
+        <div class="cover-actions">
+          <a href="#about" class="btn btn-solid">Read the feature
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+          <a href="mailto:natarajaninbox@gmail.com" class="btn btn-accent">Get in touch</a>
+          <button type="button" onclick="window.print()" class="btn btn-line">Save as PDF</button>
+        </div>
+      </div>
+      <figure class="portrait">
+        <div class="portrait-inner">
+          <img src="assets/profile-image.jpeg" alt="Natarajan Selvaraj" loading="eager">
+        </div>
+        <figcaption class="portrait-cap"><span>Plate I</span><b>Autodesk · MMXXVI</b></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="container">
+    <div class="stat"><div class="stat-num"><em>23</em></div><div class="stat-label">Years engineering</div></div>
+    <div class="stat"><div class="stat-num">15<em>K+</em></div><div class="stat-label">Users served</div></div>
+    <div class="stat"><div class="stat-num">11</div><div class="stat-label">MCP agents shipped</div></div>
+    <div class="stat"><div class="stat-num">2,000</div><div class="stat-label">Dealer sites run</div></div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="feature-num">01</span>
+      <h2>The <em>lede</em></h2>
+      <p class="lede">A short orientation — who he is, what he builds, and the throughline that connects two decades of engineering to today's agentic systems.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-body">
+        <p>Natarajan Selvaraj is a Principal Engineer at <b>Autodesk</b>, where he leads the architecture of <em>Lumi</em> — an enterprise employee assistant platform built on eleven specialized MCP agents running on AWS Bedrock AgentCore. The system serves Autodesk's global workforce of more than fifteen thousand employees with conversational access to HR, IT, procurement, and knowledge workflows.</p>
+        <p>Across twenty-three years at Autodesk, Ford, General Motors, and Ansira (CDK / Sincro), he has consistently been the engineer who turns ambiguous AI or platform initiatives into running production systems — and then the architectural patterns that make those systems maintainable for the teams that inherit them.</p>
+        <blockquote class="pullquote">
+          The hard part of enterprise AI isn't the model — it's the dual-OAuth boundary, the observability that survives a production incident, and the evaluation framework that lets you measure quality across suppliers.
+          <cite>— On building agentic systems at scale</cite>
+        </blockquote>
+        <p>His current work centers on <b>Generative AI</b>, <b>multi-agent orchestration</b>, and <b>enterprise-grade observability</b> — the places where research demos become real software. He writes about what he learns on Medium and through patterns shared with the broader AI engineering community.</p>
+      </div>
+      <aside class="factsheet">
+        <div class="facts">
+          <div class="fact"><span class="fact-k">Role</span><span class="fact-v"><b>Principal Engineer</b> · AI Architect</span></div>
+          <div class="fact"><span class="fact-k">Company</span><span class="fact-v"><b>Autodesk</b> (Hybrid)</span></div>
+          <div class="fact"><span class="fact-k">Tenure</span><span class="fact-v">Nov 2024 — Present</span></div>
+          <div class="fact"><span class="fact-k">Focus</span><span class="fact-v">Agentic AI · MCP · RAG · LLM Eval</span></div>
+          <div class="fact"><span class="fact-k">Edu.</span><span class="fact-v">Master of Computer Applications</span></div>
+          <div class="fact"><span class="fact-k">Prior</span><span class="fact-v">Ford · General Motors · Ansira</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="container">
+    <div class="section-head">
+      <span class="feature-num">02</span>
+      <h2>The <em>work</em></h2>
+      <p class="lede">Twenty-three years across enterprise platforms, automotive digital, and now enterprise AI.</p>
+    </div>
+    <div class="work-grid">
+      <aside class="work-aside">
+        <div class="work-aside-title">Roles</div>
+        <ul>
+          <li><a href="#r-autodesk">Autodesk</a></li>
+          <li><a href="#r-ford">Ford</a></li>
+          <li><a href="#r-ansira">Ansira</a></li>
+          <li><a href="#r-gm">GM</a></li>
+          <li><a href="#r-kaizen">Kaizen</a></li>
+        </ul>
+      </aside>
+      <div class="timeline">
+
+        <article class="role is-current" id="r-autodesk">
+          <div class="role-head">
+            <span class="role-when">2024 NOV — Present</span>
+            <span class="role-current-pill">In post</span>
+          </div>
+          <h3 class="role-title">Principal Engineer — AI Architect</h3>
+          <div class="role-org"><b>Autodesk</b> (Hybrid)</div>
+          <ul class="role-bullets">
+            <li>Architected <b>Lumi</b>, an enterprise employee assistant platform with <b>eleven specialized MCP agents</b> on AWS Bedrock AgentCore — serving Autodesk's global workforce.</li>
+            <li>Built <b>EVA-Crew</b>, a multi-agent system using CrewAI with Azure OpenAI (GPT-4o), orchestrating employee queries, automation workflows, and knowledge retrieval.</li>
+            <li>Engineered <b>ChatGPT Enterprise ↔ Microsoft Copilot Studio</b> integration via Direct Line APIs, extending coverage to Slack and Microsoft Teams.</li>
+            <li>Led the <b>Kore.AI → custom agentic solution migration</b> using Model Context Protocol and AWS Bedrock AgentCore — eliminating platform dependency.</li>
+            <li>Implemented enterprise <b>RAG</b> with Azure AI Search and AWS Kendra; established AI quality benchmarking using the RAGAS framework.</li>
+            <li>Built EA Asset Management MCP server with <b>dual OAuth boundaries</b> (Azure AD inbound / AMIX APIs outbound) and full OpenTelemetry instrumentation.</li>
+          </ul>
+          <div class="chips"><span class="chip is-key">AWS Bedrock AgentCore</span><span class="chip is-key">MCP</span><span class="chip">CrewAI</span><span class="chip">Azure OpenAI</span><span class="chip">RAGAS</span><span class="chip">OpenTelemetry</span><span class="chip">LangGraph</span></div>
+        </article>
+
+        <article class="role" id="r-ford">
+          <div class="role-head"><span class="role-when">2024 MAY — Nov</span></div>
+          <h3 class="role-title">Staff Software Engineer</h3>
+          <div class="role-org"><b>Ford Motor Company</b> (DeChen)</div>
+          <ul class="role-bullets">
+            <li>Architected <b>SNAP</b> and <b>SPR Dashboards</b> using Elasticsearch, GCP CloudRun, Python, Spring Boot, and Angular — reducing page load times from <b>five-to-ten minutes to under one minute</b>.</li>
+            <li>Designed an API-first integration layer enabling cross-team data consumption across the GDIA group.</li>
+          </ul>
+          <div class="chips"><span class="chip">Elasticsearch</span><span class="chip">GCP CloudRun</span><span class="chip">Spring Boot</span><span class="chip">Angular</span><span class="chip">Python</span></div>
+        </article>
+
+        <article class="role" id="r-ansira">
+          <div class="role-head"><span class="role-when">2020 APR — 2024 Mar</span></div>
+          <h3 class="role-title">Software Development Manager</h3>
+          <div class="role-org"><b>Ansira</b> (Remote)</div>
+          <ul class="role-bullets">
+            <li>Led engineering delivery and AWS cloud architecture for automotive digital marketing platforms serving <b>2,000+ dealer websites</b> across GM, Ford, Mazda, Nissan, and BMW.</li>
+            <li>Managed and mentored a 100% DevOps Agile team; drove sprint priorities, code reviews, and the technical roadmap.</li>
+            <li>Architected the <b>Incentive Imports Framework</b>, reducing new OEM integration from months to weeks; pioneered Natural Language Search for vehicle incentives.</li>
+            <li>Drove the <b>Oracle → AWS Aurora (Postgres) migration</b> and Redis distributed cache adoption, reducing API response times by <b>66% (300ms → 100ms)</b>.</li>
+            <li>Built a full observability stack: OpenTelemetry, Prometheus, Grafana, OpsGenie; introduced Blazemeter load testing for all critical services.</li>
+            <li>Containerized <b>thirty-one Java/Spring applications</b>, significantly reducing infrastructure costs and improving deployment portability.</li>
+          </ul>
+          <div class="chips"><span class="chip is-key">AWS Aurora</span><span class="chip">Redis</span><span class="chip">Java/Spring</span><span class="chip">Grafana</span><span class="chip">DevOps</span><span class="chip">OpenTelemetry</span></div>
+        </article>
+
+        <article class="role">
+          <div class="role-head"><span class="role-when">2013 NOV — 2020 Apr</span></div>
+          <h3 class="role-title">Software Engineer III &amp; IV</h3>
+          <div class="role-org"><b>Ansira</b> (aka CDK, Sincro)</div>
+          <ul class="role-bullets">
+            <li>Developed core platform services — vehicle inventory, offer management, and dealer website integrations — for GM, Mazda, Nissan, BMW, and Ford.</li>
+            <li>Introduced <b>SonarQube quality gates</b>, Correlation-ID end-to-end tracing, and cross-team knowledge-sharing.</li>
+          </ul>
+        </article>
+
+        <article class="role" id="r-gm">
+          <div class="role-head"><span class="role-when">2006 SEP — 2013 Nov</span></div>
+          <h3 class="role-title">Information Architect</h3>
+          <div class="role-org"><b>General Motors</b> (Mphasis)</div>
+          <ul class="role-bullets">
+            <li>Designed and developed GM Purchasing Web Applications: Global Quality Tracking System, Tool Move, Capacity Planning, and Ferrous &amp; Non-Ferrous Contracting Systems.</li>
+            <li>Led the <b>Linux environment migration</b> for GM purchasing systems, delivering significant annual infrastructure cost savings.</li>
+          </ul>
+        </article>
+
+        <article class="role" id="r-kaizen">
+          <div class="role-head"><span class="role-when">2003 MAY — 2006 Sep</span></div>
+          <h3 class="role-title">Software Developer</h3>
+          <div class="role-org"><b>Kaizen &amp; LT Infotech India</b></div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="caps">
+  <div class="container">
+    <div class="section-head">
+      <span class="feature-num">03</span>
+      <h2><em>Capabilities</em></h2>
+      <p class="lede">The stack he reaches for when building enterprise AI.</p>
+    </div>
+    <div class="caps">
+      <article class="cap"><div class="cap-head"><h3 class="cap-title">Agentic AI &amp; Generative AI</h3><span class="cap-num">i.</span></div><p class="cap-desc">Designing multi-agent systems, orchestration patterns, and the evaluation harnesses that keep them honest in production.</p><div class="chips"><span class="chip is-key">Multi-Agent</span><span class="chip is-key">MCP</span><span class="chip">CrewAI</span><span class="chip">LangGraph</span><span class="chip">FastMCP</span><span class="chip">RAGAS</span></div></article>
+      <article class="cap"><div class="cap-head"><h3 class="cap-title">Cloud &amp; AI Platforms</h3><span class="cap-num">ii.</span></div><p class="cap-desc">The runtime substrate — where agents live, where vectors are queried, where production traffic actually flows.</p><div class="chips"><span class="chip is-key">AWS Bedrock</span><span class="chip is-key">Azure OpenAI</span><span class="chip">AI Foundry</span><span class="chip">AI Search</span><span class="chip">Kendra</span><span class="chip">Lambda</span></div></article>
+      <article class="cap"><div class="cap-head"><h3 class="cap-title">Languages &amp; Frameworks</h3><span class="cap-num">iii.</span></div><p class="cap-desc">Two decades of polyglot engineering — chosen by what fits the problem, not by what's fashionable.</p><div class="chips"><span class="chip is-key">Python</span><span class="chip is-key">Java</span><span class="chip">Node.js</span><span class="chip">TypeScript</span><span class="chip">Spring Boot</span><span class="chip">Angular</span></div></article>
+      <article class="cap"><div class="cap-head"><h3 class="cap-title">Observability &amp; DevOps</h3><span class="cap-num">iv.</span></div><p class="cap-desc">The systems that catch problems before customers do, and the pipelines that make releases routine.</p><div class="chips"><span class="chip is-key">OpenTelemetry</span><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Terraform</span><span class="chip">Docker</span><span class="chip">CI/CD</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="dispatches">
+  <div class="container">
+    <div class="section-head">
+      <span class="feature-num">04</span>
+      <h2><em>Dispatches</em></h2>
+      <p class="lede">Field notes from production AI engineering — published on Medium.</p>
+    </div>
+    <div class="dispatches">
+      <a href="https://medium.com/@natarajaninbox/unified-rag-evaluation-schema-cross-supplier-quality-measurement-for-amazon-bedrock-and-agentic-02b4364351c0" target="_blank" rel="noopener" class="dispatch">
+        <div class="dispatch-num">01</div>
+        <div class="dispatch-cat">On RAG Evaluation</div>
+        <h3 class="dispatch-title">Unified RAG Evaluation Schema: Cross-Supplier Quality Measurement for Amazon Bedrock and Agentic AI</h3>
+        <div class="dispatch-tags"><span class="dispatch-tag">rag</span><span class="dispatch-tag">evaluation</span><span class="dispatch-tag">bedrock</span></div>
+        <span class="dispatch-cta">Read on Medium <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </a>
+      <a href="https://medium.com/@natarajaninbox/stateless-http-container-isolation-why-mcp-servers-on-serverless-runtimes-must-disable-d4c6abe1ac5a" target="_blank" rel="noopener" class="dispatch">
+        <div class="dispatch-num">02</div>
+        <div class="dispatch-cat">On MCP Architecture</div>
+        <h3 class="dispatch-title">Stateless HTTP &amp; Container Isolation: Why MCP Servers on Serverless Runtimes Must Disable Sessions</h3>
+        <div class="dispatch-tags"><span class="dispatch-tag">mcp</span><span class="dispatch-tag">serverless</span><span class="dispatch-tag">architecture</span></div>
+        <span class="dispatch-cta">Read on Medium <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </a>
+      <a href="https://medium.com/@natarajaninbox/the-evidence-logged-agent-loop-structured-tool-call-logging-for-agentic-systems-dfc511b6735f" target="_blank" rel="noopener" class="dispatch">
+        <div class="dispatch-num">03</div>
+        <div class="dispatch-cat">On Observability</div>
+        <h3 class="dispatch-title">The Evidence-Logged Agent Loop: Structured Tool-Call Logging for Agentic Systems</h3>
+        <div class="dispatch-tags"><span class="dispatch-tag">agentic</span><span class="dispatch-tag">observability</span><span class="dispatch-tag">toolcalls</span></div>
+        <span class="dispatch-cta">Read on Medium <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17 17 7M7 7h10v10"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="creds">
+  <div class="container">
+    <div class="section-head">
+      <span class="feature-num">05</span>
+      <h2><em>Credentials</em></h2>
+      <p class="lede">Validated specializations across AI agent platforms, cloud, and engineering fundamentals.</p>
+    </div>
+    <div class="creds">
+      <a href="assets/certificates/2026-CrewAI.png" target="_blank" rel="noopener" class="cred"><span class="cred-ribbon crew">CrewAI</span><div class="cred-head"><div class="cred-title">Multi-Agent Systems Certified</div><div class="cred-meta">2026 · Crew Inc.</div></div><div class="cred-foot"><span class="cred-issuer">CrewAI</span><span class="cred-verify">View →</span></div></a>
+      <a href="https://verify.skilljar.com/c/zfz79m8hm8y3" target="_blank" rel="noopener" class="cred"><span class="cred-ribbon skilljar">Skilljar</span><div class="cred-head"><div class="cred-title">CrewAI Advanced — Verified Credential</div><div class="cred-meta">zfz79m8hm8y3</div></div><div class="cred-foot"><span class="cred-issuer">Skilljar</span><span class="cred-verify">Verify →</span></div></a>
+      <a href="https://cp.certmetrics.com/amazon/en/public/verify/credential/MFB94C8DM2FEQCGN" target="_blank" rel="noopener" class="cred"><span class="cred-ribbon aws">AWS</span><div class="cred-head"><div class="cred-title">Certified Cloud Practitioner</div><div class="cred-meta">2022 · MFB94C8DM2FEQCGN</div></div><div class="cred-foot"><span class="cred-issuer">Amazon</span><span class="cred-verify">Verify →</span></div></a>
+      <a href="https://www.linkedin.com/learning/certificates/4ac35474fcaa97720e7db6a77b70135131de0fffd84fce25e4500772c259a880?trk=share_certificate" target="_blank" rel="noopener" class="cred"><span class="cred-ribbon linkedin">LinkedIn</span><div class="cred-head"><div class="cred-title">Secure GenAI with Amazon Bedrock</div><div class="cred-meta">LinkedIn Learning</div></div><div class="cred-foot"><span class="cred-issuer">LinkedIn</span><span class="cred-verify">Verify →</span></div></a>
+      <a href="https://www.linkedin.com/learning/certificates/9b41243875595f0f080bdbc1e1324839c023472e0b77f161d00896ed702e08d0?trk=share_certificate" target="_blank" rel="noopener" class="cred"><span class="cred-ribbon linkedin">LinkedIn</span><div class="cred-head"><div class="cred-title">Learning Amazon Bedrock</div><div class="cred-meta">LinkedIn Learning</div></div><div class="cred-foot"><span class="cred-issuer">LinkedIn</span><span class="cred-verify">Verify →</span></div></a>
+      <a href="https://www.linkedin.com/learning/certificates/ca4fc032fb9cf5d9aa020cd5d4389d9aed02ca1461b6a4be55cfc5d20c6b112a?trk=share_certificate" target="_blank" rel="noopener" class="cred"><span class="cred-ribbon msft">Microsoft</span><div class="cred-head"><div class="cred-title">Autonomous Agents in Copilot Studio</div><div class="cred-meta">LinkedIn Learning</div></div><div class="cred-foot"><span class="cred-issuer">Microsoft</span><span class="cred-verify">Verify →</span></div></a>
+      <a href="https://www.linkedin.com/learning/certificates/3251a45afe8899dac640b0ad3faed663de429f7b09e1ffceef211a91fc5c9f70?trk=share_certificate" target="_blank" rel="noopener" class="cred"><span class="cred-ribbon msft">Microsoft</span><div class="cred-head"><div class="cred-title">Extend M365 Copilot with AI Agents</div><div class="cred-meta">LinkedIn Learning</div></div><div class="cred-foot"><span class="cred-issuer">Microsoft</span><span class="cred-verify">Verify →</span></div></a>
+      <a href="https://www.linkedin.com/learning/certificates/e47226ea072041e6968d87c8d526fce6e83c960acef70865bb802e49ab16f901?trk=share_certificate" target="_blank" rel="noopener" class="cred"><span class="cred-ribbon msft">Microsoft</span><div class="cred-head"><div class="cred-title">Building in Microsoft Copilot Studio</div><div class="cred-meta">LinkedIn Learning</div></div><div class="cred-foot"><span class="cred-issuer">Microsoft</span><span class="cred-verify">Verify →</span></div></a>
+
+      <a href="assets/certificates/CertificateOfCompletion_Agentic%20AI%20Building%20DataFirst%20AI%20Agents.pdf" target="_blank" rel="noopener" class="cred cred-extra"><span class="cred-ribbon linkedin">LinkedIn</span><div class="cred-head"><div class="cred-title">Agentic AI: Data-First Agents</div><div class="cred-meta">LinkedIn Learning</div></div><div class="cred-foot"><span class="cred-issuer">LinkedIn</span><span class="cred-verify">PDF →</span></div></a>
+      <a href="assets/certificates/CertificateOfCompletion_Build%20AI%20Agents%20and%20Chatbots%20with%20LangGraph.pdf" target="_blank" rel="noopener" class="cred cred-extra"><span class="cred-ribbon linkedin">LinkedIn</span><div class="cred-head"><div class="cred-title">AI Agents and Chatbots with LangGraph</div><div class="cred-meta">LinkedIn Learning</div></div><div class="cred-foot"><span class="cred-issuer">LinkedIn</span><span class="cred-verify">PDF →</span></div></a>
+      <a href="assets/certificates/CertificateOfCompletion_Build%20AI%20Agents%20with%20n8n.pdf" target="_blank" rel="noopener" class="cred cred-extra"><span class="cred-ribbon linkedin">LinkedIn</span><div class="cred-head"><div class="cred-title">Build AI Agents with n8n</div><div class="cred-meta">LinkedIn Learning</div></div><div class="cred-foot"><span class="cred-issuer">LinkedIn</span><span class="cred-verify">PDF →</span></div></a>
+      <a href="assets/certificates/CertificateOfCompletion_Building%20AI%20Skills%20with%20Microsoft%20Copilot%20Lab.pdf" target="_blank" rel="noopener" class="cred cred-extra"><span class="cred-ribbon msft">Microsoft</span><div class="cred-head"><div class="cred-title">AI Skills with Microsoft Copilot Lab</div><div class="cred-meta">LinkedIn Learning</div></div><div class="cred-foot"><span class="cred-issuer">Microsoft</span><span class="cred-verify">PDF →</span></div></a>
+      <a href="https://learn.deeplearning.ai/certificates/8efe3eff-d326-4862-afa7-8ce9c4b31da5" target="_blank" rel="noopener" class="cred cred-extra"><span class="cred-ribbon dlai">DeepLearn</span><div class="cred-head"><div class="cred-title">DeepLearning.AI Short Course</div><div class="cred-meta">deeplearning.ai</div></div><div class="cred-foot"><span class="cred-issuer">DeepLearning.AI</span><span class="cred-verify">Verify →</span></div></a>
+      <div class="cred cred-extra"><span class="cred-ribbon sun">Sun</span><div class="cred-head"><div class="cred-title">Sun Certified Java Developer</div><div class="cred-meta">Sun Microsystems · Legacy</div></div><div class="cred-foot"><span class="cred-issuer">Sun</span><span class="cred-verify" style="color:var(--ink-4)">— Archival</span></div></div>
+    </div>
+    <div class="cred-toggle"><button class="btn btn-line" data-cred-toggle aria-expanded="false">Show all credentials <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></div>
+  </div>
+</section>
+
+</main>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-flag">
+      <span>Colophon &amp; Contact</span>
+      <span>End of issue 01</span>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <h2>Let's build something <em>thoughtful</em>.</h2>
+        <p class="contact-body">If you're working on enterprise AI architecture — multi-agent systems, MCP services, RAG quality, or production engineering — I'm always interested in the conversation.</p>
+        <div class="contact-actions">
+          <a href="mailto:natarajaninbox@gmail.com" class="btn btn-accent">Write to me</a>
+          <a href="https://www.linkedin.com/in/natarajanselvaraj" target="_blank" rel="noopener" class="btn btn-line">LinkedIn →</a>
+          <button type="button" onclick="window.print()" class="btn btn-line">Save as PDF</button>
+        </div>
+      </div>
+      <div class="contact-meta">
+        <div class="contact-meta-row"><span class="k">Mail</span><a href="mailto:natarajaninbox@gmail.com">natarajaninbox@gmail.com</a></div>
+        <div class="contact-meta-row"><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/natarajanselvaraj" target="_blank" rel="noopener">/in/natarajanselvaraj</a></div>
+        <div class="contact-meta-row"><span class="k">Medium</span><a href="https://medium.com/@natarajaninbox" target="_blank" rel="noopener">@natarajaninbox</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="container">
+    <div class="foot-inner">
+      <span>© MMXXVI · Natarajan Selvaraj · v3c Magazine</span>
+      <span>Set in Fraunces &amp; Inter</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const t=document.querySelector('[data-theme-toggle]'),r=document.documentElement;
+  const sun='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+  const moon='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  let d=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');
+  r.setAttribute('data-theme',d);
+  if(t){t.innerHTML=d==='dark'?sun:moon;t.addEventListener('click',()=>{d=d==='dark'?'light':'dark';r.setAttribute('data-theme',d);localStorage.setItem('theme',d);t.innerHTML=d==='dark'?sun:moon;});}
+  const ct=document.querySelector('[data-cred-toggle]');
+  if(ct){ct.addEventListener('click',()=>{const open=!ct.matches('[aria-expanded="true"]');document.querySelectorAll('.cred-extra').forEach(el=>el.classList.toggle('is-open',open));ct.setAttribute('aria-expanded',open?'true':'false');ct.innerHTML=open?'Show fewer':'Show all credentials';});}
+})();
+</script>
+</body>
+</html>
