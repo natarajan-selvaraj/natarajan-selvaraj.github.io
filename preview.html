@@ -112,7 +112,7 @@
 
     .writing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.article{position:relative;overflow:hidden;border-radius:var(--radius-sm);padding:24px;min-height:270px;background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;transition:.22s ease}.article:hover{transform:translateY(-4px);border-color:rgba(185,251,192,.28)}.article::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 0%,rgba(143,211,255,.20),transparent 42%);opacity:.8}.article>*{position:relative}.article-top{display:flex;justify-content:space-between;gap:12px;color:var(--soft);font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em}.article h3{font-size:1.15rem;line-height:1.25;letter-spacing:-.04em;margin:28px 0 18px}.read{margin-top:auto;font-family:var(--mono);font-size:.74rem;color:var(--brand-2);font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 
-    .cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cred{min-height:154px;border-radius:20px;padding:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:12px;transition:.2s ease}.cred:hover{transform:translateY(-3px);border-color:rgba(143,211,255,.26);background:rgba(255,255,255,.085)}.issuer{align-self:flex-start;padding:5px 9px;border-radius:999px;background:rgba(143,211,255,.13);color:var(--brand);font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.cred-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.cred-top .cred-num{margin:0;color:var(--soft);font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.08em}.cred h3{font-size:.98rem;line-height:1.26;letter-spacing:-.025em}.cred span:last-child{margin-top:auto;color:var(--soft);font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}.hidden-cred{display:none}.hidden-cred.show{display:flex}.center{display:flex;justify-content:center;margin-top:22px}
+    .cred-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cred{min-height:154px;border-radius:20px;padding:18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:12px;transition:.2s ease}.cred:hover{transform:translateY(-3px);border-color:rgba(143,211,255,.26);background:rgba(255,255,255,.085)}.issuer{align-self:flex-start;padding:5px 9px;border-radius:999px;background:rgba(143,211,255,.13);color:var(--brand);font-family:var(--mono);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}.cred-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.cred-top .cred-num{margin:0;color:var(--soft);font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.08em}.cred h3{font-size:.98rem;line-height:1.26;letter-spacing:-.025em}.cred span:last-child{margin-top:auto;color:var(--soft);font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}.hidden-cred{display:none}.hidden-cred.show{display:flex}.hidden-article{display:none}.hidden-article.show{display:flex}.center{display:flex;justify-content:center;margin-top:22px}
 
     .contact{padding-bottom:80px}.contact-card{border-radius:var(--radius);padding:clamp(28px,5vw,52px);display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;background:linear-gradient(135deg,rgba(143,211,255,.13),rgba(255,255,255,.06) 42%,rgba(185,251,192,.12));border:1px solid rgba(255,255,255,.13)}.contact h2{font-size:clamp(2.2rem,5vw,5rem);letter-spacing:-.08em;line-height:.93;margin-bottom:18px}.contact-links{display:grid;gap:12px}.contact-link{display:flex;justify-content:space-between;gap:16px;padding:16px 18px;border-radius:18px;background:rgba(7,9,18,.34);border:1px solid rgba(255,255,255,.1);color:#f7f8ff;font-weight:700}.contact-link small{color:var(--soft);font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}
 
@@ -192,6 +192,7 @@
       .cred h3{font-size:8pt;letter-spacing:-.01em;line-height:1.2}
       .cred span:last-child{font-size:5.5pt}
       .hidden-cred{display:flex!important}
+      .hidden-article{display:flex!important}
       .contact{padding:0;break-inside:avoid}
       .contact-card{display:grid;grid-template-columns:1.4fr 1fr;gap:8pt;padding:8pt 10pt;background:#faf6ee!important;border:1px solid #ddd!important;border-radius:4pt}
       .contact h2{font-size:13pt;margin-bottom:2pt;letter-spacing:-.03em;line-height:1}
@@ -327,7 +328,10 @@
           <a class="article" href="https://medium.com/@natarajaninbox/unified-rag-evaluation-schema-cross-supplier-quality-measurement-for-amazon-bedrock-and-agentic-02b4364351c0" target="_blank" rel="noopener"><div class="article-top"><span>01</span><span>RAG Evaluation</span></div><h3>Unified RAG Evaluation Schema: Cross-Supplier Quality Measurement for Amazon Bedrock and Agentic AI</h3><span class="read">Read article →</span></a>
           <a class="article" href="https://medium.com/@natarajaninbox/stateless-http-container-isolation-why-mcp-servers-on-serverless-runtimes-must-disable-d4c6abe1ac5a" target="_blank" rel="noopener"><div class="article-top"><span>02</span><span>MCP Architecture</span></div><h3>Stateless HTTP & Container Isolation: Why MCP Servers on Serverless Runtimes Must Disable Sessions</h3><span class="read">Read article →</span></a>
           <a class="article" href="https://medium.com/@natarajaninbox/the-evidence-logged-agent-loop-structured-tool-call-logging-for-agentic-systems-dfc511b6735f" target="_blank" rel="noopener"><div class="article-top"><span>03</span><span>Observability</span></div><h3>The Evidence-Logged Agent Loop: Structured Tool-Call Logging for Agentic Systems</h3><span class="read">Read article →</span></a>
+          <a class="article hidden-article" href="https://medium.com/@natarajaninbox/the-delegated-boundary-oauth-pattern-identity-propagation-across-mcp-gateways-for-enterprise-27983f311c10" target="_blank" rel="noopener"><div class="article-top"><span>04</span><span>Identity &amp; OAuth</span></div><h3>The Delegated Boundary OAuth Pattern: Identity Propagation Across MCP Gateways for Enterprise Agentic AI</h3><span class="read">Read article →</span></a>
+          <a class="article hidden-article" href="https://medium.com/@natarajaninbox/a-practical-pattern-to-implement-secure-enterprise-ai-search-186212160924" target="_blank" rel="noopener"><div class="article-top"><span>05</span><span>Enterprise Search</span></div><h3>A Practical Pattern to Implement Secure Enterprise AI Search</h3><span class="read">Read article →</span></a>
         </div>
+        <div class="center"><button class="btn btn-ghost" type="button" id="writingToggle">Show fewer articles</button></div>
       </div>
     </section>
 
@@ -383,6 +387,18 @@
         const opening=!extras.some(card=>card.classList.contains('show'));
         extras.forEach(card=>card.classList.toggle('show',opening));
         toggle.textContent=opening?'Show fewer credentials':'Show all credentials';
+      });
+    }
+
+    const writingToggle = document.getElementById('writingToggle');
+    if(writingToggle){
+      document.querySelectorAll('.hidden-article').forEach(card=>card.classList.add('show'));
+      writingToggle.textContent='Show fewer articles';
+      writingToggle.addEventListener('click',()=>{
+        const extras=[...document.querySelectorAll('.hidden-article')];
+        const opening=!extras.some(card=>card.classList.contains('show'));
+        extras.forEach(card=>card.classList.toggle('show',opening));
+        writingToggle.textContent=opening?'Show fewer articles':'Show all articles';
       });
     }
   </script>
